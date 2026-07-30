@@ -10,11 +10,11 @@ const PORT = Number(process.env.PORT || '3000')
 
 // Configurar CORS para aceitar requisições do frontend
 app.use(cors({
-  origin: 'uc-14-deploy-front.vercel.app', //seu frontend
-  credentials: true, // Permite enviar cookies
-  methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-} ))
+  origin: "https://uc-14-deploy-front.vercel.app",
+  credentials: true,
+  methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
