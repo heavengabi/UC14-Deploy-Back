@@ -1,30 +1,34 @@
-import express, { Application } from 'express'
-import cors from "cors"
-import cookieParser from 'cookie-parser'
-import authRoutes from './routes/authRoutes'
-import userRoutes from './routes/userRoutes'
-import { errorHandler } from './middlewares/errorHandler';
+import express, { Application } from "express";
+import cors from "cors";
+import cookieParser from "cookie-parser";
+import authRoutes from "./routes/authRoutes";
+import userRoutes from "./routes/userRoutes";
+import { errorHandler } from "./middlewares/errorHandler";
 
-const app: Application = express()
-const PORT = Number(process.env.PORT || '3000')
+const app: Application = express();
+const PORT = Number(process.env.PORT || "3000");
 
 // Configurar CORS para aceitar requisições do frontend
-app.use(cors({
-  origin: "https://uc-14-deploy-front.vercel.app",
-  credentials: true,
-  methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"]
-}));
+app.use(
+  cors({
+    origin: "https://uc-14-deploy-front.vercel.app",
+    credentials: true,
+    methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  }),
+);
 
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
-app.use(cookieParser())
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
-app.use(authRoutes)
-app.use(userRoutes)
+app.use(authRoutes);
+app.use(userRoutes);
 
-app.use(errorHandler)
+app.use(errorHandler);
 
 app.listen(PORT, () => {
-    console.log(`Servidor rodando em http://localhost:${PORT}`)
-})
+  console.log(`Servidor rodando em http://localhost:${PORT}`);
+});
+
+///Gabriela123T
